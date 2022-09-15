@@ -1,0 +1,142 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #191919;
+    color: #fff;
+    width: 100vw;
+    height: 100vh;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.main h1 {
+    margin: 20px;
+}
+
+.main #search {
+    width: 50%;
+    height: 50px;
+    border: 1px solid #3c3c3c;
+    color: #fff;
+    background: black;
+    border-radius: 5px;
+    padding: 0 10px;
+    font-size: 1.2rem;
+    margin: 20px;
+}
+
+.main #search:focus {
+    outline: none;
+}
+
+.main #autocomplete {
+    width: 50%;
+    color: #fff;
+    background: black;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.main #autocomplete .autocomplete-item {
+    width: 96%;
+    height: 50px;
+    border: 1px solid #3c3c3c;
+    color: #fff;
+    background: black;
+    border-radius: 5px;
+    padding: 0 10px;
+    font-size: 1.2rem;
+    margin: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.main #autocomplete .autocomplete-item:hover {
+    background: #3c3c3c;
+    cursor: pointer;
+}
+
+.main #train-info {
+    width: 100%;
+    color: #fff;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.main #train-info .schedule {
+    width: 100%;
+    color: #fff;
+    border-radius: 5px;
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.main #train-info .schedule .day-yes {
+    width: 50px;
+    height: 50px;
+    color: #000;
+    background: greenyellow;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    justify-content: center;
+}
+
+.main #train-info .schedule .day-no {
+    width: 50px;
+    height: 50px;
+    color: #fff;
+    background: orangered;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main #train-route {
+    padding: 10px;
+}
+
+.main #train-route .route th {
+    padding: 10px;
+}
+
+.main #train-route .route th td {
+    border: #fff 1px solid;
+}
+
+.main #train-route tr {
+    border: 1px solid #fff;
+    padding: 20px;
+    margin: 10px;
+}
+
+.main #train-route tr td {
+    border: 1px solid #fff;
+    padding: 10px;
+}

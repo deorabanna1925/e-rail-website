@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="createArray()">Download Zip</button>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js" integrity="sha512-XMVd28F1oH/O71fzwBnV7HucLxVwtxf26XV8P4wPk26EDxuGZ91N8bsOttmnomcCD3CS5ZMRL50H0GgOHvegtg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        var array = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
+        // create a function to create 2 new arrays from the main array
+
+        function createArray(){
+            var array1 = [];
+            var array2 = [];
+            for(var i=0; i<array.length; i++){
+                if(i%2==0){
+                    array1.push(array[i]);
+                }else{
+                    array2.push(array[i]);
+                }
+            }
+            getAllArrays(array, array1, array2);
+        }
+
+        // create a function to get all the arrays
+        function getAllArrays(array, array1, array2) {
+            // create 3 json files of the 3 arrays
+            var json1 = JSON.stringify(array1);
+            var json2 = JSON.stringify(array2);
+            var json3 = JSON.stringify(array);
+
+            // compress 3 json files to a zip file
+            var zip = new JSZip();
+            zip.file("array1.json", json1);
+            zip.file("array2.json", json2);
+            zip.file("array3.json", json3);
+            zip.generateAsync({type:"blob"})
+            .then(function(content) {
+                // see FileSaver.js
+                saveAs(content, "arrays.zip");
+            });
+        }
+
+        function saveAs(blob, fileName) {
+            var link = document.createElement('a');
+            link.href = window.URL.createObjectURL(blob);
+            link.download = fileName;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+    </script>
+</body>
+</html>
